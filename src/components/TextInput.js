@@ -20,7 +20,7 @@ class TextInput extends React.Component {
     };
     this.titleHandleChange = this.titleHandleChange.bind(this);
     this.textHandleChange = this.textHandleChange.bind(this);
-    
+    this._handleImageChange = this._handleImageChange.bind(this);
   }
 
   _handleSubmit(e) {
@@ -196,7 +196,7 @@ class TextInput extends React.Component {
       </span>
       
       <span>
-      <MobileScreen></MobileScreen>
+      <MobileScreen title={this.state.title} text={this.state.text} image={this.state.imagePreviewUrl}></MobileScreen>
       </span>
       </div>
       </div>

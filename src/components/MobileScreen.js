@@ -1,6 +1,6 @@
 import React from 'react';
 import backgroundMobilePhone from '../images/backgroundMobilePhone.png';
-import PushAd from './PushAd';
+import PushMobileAd from './PushMobileAd';
 
 class MobileScreen extends React.Component {
 
@@ -13,7 +13,7 @@ class MobileScreen extends React.Component {
         return(
  
           <div style={styles.pushScreen}>
-            <PushAd 
+            <PushMobileAd
             style={styles.pushAdScreen}
             title={this.props.title} text={this.props.text} image={this.props.$imagePreviewUrl}/>
            

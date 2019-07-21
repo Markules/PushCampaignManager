@@ -1,18 +1,13 @@
 import React from 'react';
 import backgroundComputer from '../images/backgroundComputer.png';
 import PushAd from './PushAd';
-import textInput from './TextInput';
-
-
-
 
 class ComputerScreen extends React.Component {
 
     constructor(props) {
         super(props);  
         
-        this.state = {
-          
+        this.state = {     
 
         };
     }
@@ -21,15 +16,18 @@ class ComputerScreen extends React.Component {
 
         return(
             
-            
           <div style={styles.pushScreen}>
             <PushAd 
             title={this.props.title} 
             text={this.props.text} 
-            image={this.props.$imagePreviewUrl}/>
-           
+            image={this.props.imagePreviewUrl}/>
+              <div style={styles.preview}>
+              {this.props.imagePreviewUrl}
+              </div>
           </div>  
+          
         )
+        
 
     }
 
@@ -43,7 +41,7 @@ const styles = {
         height: 455,
         marginLeft: '30%',
         marginBottom: '10%',
-        backgroundImage: `url(${backgroundComputer})`,
+        backgroundImage: `url(${backgroundComputer})`, 
         backgroundRepeat: 'no-repeat',
         position: 'relative',
         display: 'flex',
