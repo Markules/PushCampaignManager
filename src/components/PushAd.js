@@ -84,6 +84,7 @@ const styles = {
 
     textSpan: {
         textOverflow: 'ellipsis',
+        marginTop: '2%',
         width: '100%',
         
     },
@@ -108,13 +109,15 @@ const styles = {
     iconImage: {
         position: 'absolute',
         width:'100%',
-        height:'100%'
+        height:'100%',
+        
     },
 
     image: {
         position: 'absolute',
         width:'100%',
-        height:'100%'
+        height:'100%',
+        
     },
     
 }

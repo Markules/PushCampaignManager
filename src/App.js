@@ -8,9 +8,19 @@ function App() {
 
   return (
 
+   <div>
  <TextInput />
 
+      <p>Copyright © 2019 by Markules</p>
+ </div> 
+
+
+ 
+ 
+  
   );
+
+  
 }
 
 export default App;

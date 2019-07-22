@@ -220,7 +220,11 @@ class TextInput extends React.Component {
          </MobileScreen>
       </span>
       </div>
+
+
       </div>
+
+      
   
     );
   };
@@ -242,10 +246,9 @@ const styles = {
 
   formComponent: {
     
-    marginTop: 50,
-    marginLeft:50,
+    height:'100%',
     width: '90%',
-    display:'flex'
+    display:'flex',
 
   },
 
@@ -253,14 +256,11 @@ const styles = {
     
     boxSizing: "border-box",
     display: 'inline-grid',
-    backgroundColor: '#aee7e8',
+    backgroundColor: '#f6f5f5',
     width: 410,
-    height: 450,
+    height: 700,
     borderRadius: 10,
     border: '1px black solid'
-    
-    
-
 
   },
 
@@ -271,7 +271,7 @@ const styles = {
     height: 40,
     borderRadius: 7,
     fontSize: 21,
-    padding: 5,
+    padding: 10,
     borderStyle: 'solid',
     borderWidth: 1,
     color: 'gray'
@@ -305,7 +305,7 @@ const styles = {
     height: 50,
     textAlign: 'center',
     borderRadius: 10,
-    backgroundColor: '#fabc74',
+    backgroundColor: '#ffc785',
     borderStyle: 'solid',
     borderWidth: 2,
     fontSize: 21,
