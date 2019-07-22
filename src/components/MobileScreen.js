@@ -15,7 +15,9 @@ class MobileScreen extends React.Component {
           <div style={styles.pushScreen}>
             <PushMobileAd
             style={styles.pushAdScreen}
-            title={this.props.title} text={this.props.text} image={this.props.$imagePreviewUrl}/>
+            title={this.props.title} 
+            text={this.props.text} 
+            icon={this.props.icon}/>
            
           </div>  
         )

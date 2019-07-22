@@ -14,13 +14,17 @@ class TextInput extends React.Component {
       selectedIcon: null,
       selectedImage: null,
       Vertical: null, 
-      file: '',
-      imagePreviewUrl: ''
+      imageFile: '',
+      iconFile: '',
+      imagePreviewUrl: '',
+      iconPreviewUrl: '',
 
     };
+
     this.titleHandleChange = this.titleHandleChange.bind(this);
     this.textHandleChange = this.textHandleChange.bind(this);
     this._handleImageChange = this._handleImageChange.bind(this);
+    this._handleIconChange = this._handleIconChange.bind(this);
   }
 
   _handleSubmit(e) {
@@ -29,25 +33,40 @@ class TextInput extends React.Component {
     console.log('handle uploading-', this.state.file);
   }
 
-  _handleImageChange(e) {
+  _handleIconChange(e) {
     e.preventDefault();
 
-    let reader = new FileReader();
-    let file = e.target.files[0];
+    let iconReader = new FileReader();
+    let iconFile = e.target.files[0];
 
-    reader.onloadend = () => {
+    iconReader.onloadend = () => {
       this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
+        iconFile: iconFile,
+        iconPreviewUrl: iconReader.result
       });
     }
 
-    reader.readAsDataURL(file)
+    iconReader.readAsDataURL(iconFile)
   }
 
-  testFuction(){ 
-   alert("Title: "+ " " + this.state.title + "Text: " + " " + this.state.text + "Vertical: " + " " + this.state.vertical + "Icon:" + " " + this.state.selectedIcon + "Image:" + " " + this.state.selectedImage  )
-  };
+
+  _handleImageChange(e) {
+    e.preventDefault();
+
+    let imageReader = new FileReader();
+    let imageFile = e.target.files[0];
+
+    imageReader.onloadend = () => {
+      this.setState({
+        imageFile: imageFile,
+        imagePreviewUrl: imageReader.result
+      });
+    }
+
+    imageReader.readAsDataURL(imageFile)
+  }
+
+
 
   titleHandleChange = (event) =>{
     this.setState({ title: event.target.value });
@@ -118,16 +137,6 @@ class TextInput extends React.Component {
 
       <div style={styles.formComponent}>
 
-      <div className="previewComponent">
-        <form onSubmit={(e)=>this._handleSubmit(e)}>
-
-        </form>
-        <div className="imgPreview">
-          {$imagePreview}
-        </div>
-      </div>
-                
-
         <form
           style={styles.form}>
 
@@ -152,7 +161,7 @@ class TextInput extends React.Component {
               style={styles.formUpload}
               type="file"
               name="icon"
-              onChange={this.iconHandleChange}
+              onChange={(e)=>this._handleIconChange(e)}
             />
           </label>
 
@@ -182,7 +191,7 @@ class TextInput extends React.Component {
             </select>
           </label>
           <button
-            onClick={this.testFuction.bind(this)}
+            
             type="submit"
             value="Submit"
             style={styles.button}
@@ -191,12 +200,24 @@ class TextInput extends React.Component {
             </button>
         </form>
    
-        <span>
-        <ComputerScreen title={this.state.title} text={this.state.text} image={this.state.imagePreviewUrl}></ComputerScreen> 
+      <span>
+        <ComputerScreen 
+         title={this.state.title}
+         text={this.state.text} 
+         image={this.state.imagePreviewUrl}
+         icon ={this.state.iconPreviewUrl}
+         handleImageChange={this._handleImageChange}
+         handleIconChange={this._handleIconChange}>
+           </ComputerScreen> 
       </span>
       
       <span>
-      <MobileScreen title={this.state.title} text={this.state.text} image={this.state.imagePreviewUrl}></MobileScreen>
+      <MobileScreen
+       title={this.state.title}
+        text={this.state.text}
+         image={this.state.imagePreviewUrl}
+         icon={this.state.iconPreviewUrl}>
+         </MobileScreen>
       </span>
       </div>
       </div>

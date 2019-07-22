@@ -8,20 +8,18 @@ class PushMobileAd extends React.Component {
             <div style={styles.pushComputerAd}>
             <div className="imgPreview"
                 style={styles.pushAdImage}>
-                {this.props.$imagePreviewUrl}
                 </div>
                 <div style={styles.pushComputerAdText}>
                 <span style={styles.titleSpan}>
-
                <p style={styles.pushTitle}>{this.props.title}</p>
                <br></br>
                </span>
-               
-               
                <p style={styles.pushText}>{this.props.text}</p>
-               
                </div>
-               <span style={styles.pushAdIcon}></span> 
+               <span style={styles.pushAdIcon}>
+               <img src={this.props.icon} style={styles.iconImage}>
+               </img>
+                   </span> 
                </div>
         )
 
@@ -34,7 +32,7 @@ const styles = {
     pushComputerAd: {
         backgroundColor: '#393e46',
         width: '50%',
-        height: '15%',
+        height: '12%',
         position:'absolute',
         lineHeight:1,
         display: 'flex',
@@ -47,20 +45,18 @@ const styles = {
         position: 'absolute',
         width: '24%',
         height: '49%',
-        border: '1px solid red',
         display: 'flex',
-        left: '75%',
+        left: '70%',
         top: '31%',
     },
 
 
     pushComputerAdText: {
         position: 'relative',
-        left: '0%',
-        top: '30%',
-        border: '1px solid blue',
+        left: '5%',
+        top: '37%',
         width: '73%',
-        height: '50%',
+        height: '65%',
         display: 'flex',
         overflow: 'hidden'
 
@@ -93,10 +89,14 @@ const styles = {
         display: 'flex',
         position: 'absolute',
         top: '5%',
-        
-       
-        
+           
       
+    },
+
+    iconImage: {
+        position: 'absolute',
+        width:'100%',
+        height:'100%'
     }
     
 }

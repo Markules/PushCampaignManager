@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class PushAd extends React.Component {
 
     render() {
@@ -8,7 +9,7 @@ class PushAd extends React.Component {
             <div style={styles.pushComputerAd}>
             <div className="imgPreview"
                 style={styles.pushAdImage}>
-                {this.props.$imagePreviewUrl}
+                <img src={this.props.image} style={styles.image}></img> 
                 </div>
                 <div style={styles.pushComputerAdText}>
                 <span style={styles.titleSpan}>
@@ -16,12 +17,14 @@ class PushAd extends React.Component {
                <p style={styles.pushTitle}>{this.props.title}</p>
                <br></br>
                </span>
-               
-               
+                
                <p style={styles.pushText}>{this.props.text}</p>
                
                </div>
-               <span style={styles.pushAdIcon}></span> 
+               <span style={styles.pushAdIcon}>
+               <img src={this.props.icon} style={styles.iconImage}></img>
+                   </span> 
+                   
                </div>
         )
 
@@ -33,31 +36,29 @@ const styles = {
 
     pushComputerAd: {
         backgroundColor: '#393e46',
-        width: '35%',
-        height: '35%',
+        width: '40%',
+        height: '40%',
         position:'absolute',
         lineHeight:1,
         display: 'flex',
-        left: '61%',
-        top: '38%',
+        left: '56%',
+        top: '34%',
 
     },
 
     pushAdIcon: {
         position: 'absolute',
-        width: '18%',
+        width: '20%',
         height: '22%',
-        border: '1px solid red',
         display: 'flex',
         left: '1%',
-        top: '61%',
+        top: '70%',
     },
 
     pushAdImage: {
         position: 'absolute',
         width: '100%',
         height: '60%',
-        border: '1px solid grey',
         display: 'flex',
         bottom: '39%'
 
@@ -65,9 +66,8 @@ const styles = {
 
     pushComputerAdText: {
         position: 'relative',
-        left: '20%',
-        top: '61%',
-        border: '1px solid blue',
+        left: '25%',
+        top: '66%',
         width: '79%',
         height: '38%',
         display: 'flex',
@@ -103,10 +103,19 @@ const styles = {
         position: 'absolute',
         top: '5%',
         
-       
-        
-      
-    }
+    },
+
+    iconImage: {
+        position: 'absolute',
+        width:'100%',
+        height:'100%'
+    },
+
+    image: {
+        position: 'absolute',
+        width:'100%',
+        height:'100%'
+    },
     
 }
 

@@ -11,29 +11,33 @@ class ComputerScreen extends React.Component {
 
         };
     }
+ 
 
     render() {
-
+        
         return(
             
           <div style={styles.pushScreen}>
+        
             <PushAd 
             title={this.props.title} 
             text={this.props.text} 
-            image={this.props.imagePreviewUrl}/>
-              <div style={styles.preview}>
-              {this.props.imagePreviewUrl}
-              </div>
-          </div>  
+            image={this.props.image}
+            icon={this.props.icon}
+            />
+            
+          </div> 
+     
           
         )
         
-
-    }
+        }
 
 }
 
 const styles = {
+
+
 
     pushScreen: {
 
