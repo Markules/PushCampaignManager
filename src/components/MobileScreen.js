@@ -29,7 +29,7 @@ class MobileScreen extends React.Component {
 const styles = {
 
     pushScreen: {
-
+        marginTop: '5%',
         width: 600,
         height: 750,
         marginLeft: '5%',
@@ -38,7 +38,7 @@ const styles = {
         position: 'relative',
         display: 'flex',
         bottom: '7%',
-        left: '5%'
+        left: '10%'
         
     },
     

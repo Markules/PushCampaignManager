@@ -25,6 +25,8 @@ class TextInput extends React.Component {
     this.textHandleChange = this.textHandleChange.bind(this);
     this._handleImageChange = this._handleImageChange.bind(this);
     this._handleIconChange = this._handleIconChange.bind(this);
+    
+
   }
 
   _handleSubmit(e) {
@@ -49,7 +51,6 @@ class TextInput extends React.Component {
     iconReader.readAsDataURL(iconFile)
   }
 
-
   _handleImageChange(e) {
     e.preventDefault();
 
@@ -66,13 +67,11 @@ class TextInput extends React.Component {
     imageReader.readAsDataURL(imageFile)
   }
 
-
-
-  titleHandleChange = (event) =>{
+  titleHandleChange = event => {
     this.setState({ title: event.target.value });
   }
 
-  textHandleChange(event){
+  textHandleChange = event => {
     this.setState({ text: event.target.value});
   }
 
@@ -92,56 +91,37 @@ class TextInput extends React.Component {
     this.setState({vertical: e.target.value});
   }
 
-  iconUploadHandler = () => {
-    const fd = new FormData();
-    fd.append('image', this.state.selectedIcon, this.state.selectedIcon.name);
-    axios.post('http://localhost:8080/pushmanager/campaigns', fd, {onUploadProgress: progressEvent => {
-      console.log("Upload Progress: " + Math.round(progressEvent.loaded / progressEvent.total * 100) + "%")
-    }
-    }) 
-  
-    .then(res => {
-      console.log(res);
-    });
+  handleSubmit = event => {
+    event.preventDefault();
+
+    axios.post('http://localhost:8080/Campaign/add',
+     {'title': this.state.title, 'text': this.state.text, 'icon': this.state.iconPreviewUrl, 'image': this.state.imagePreviewUrl, 'vertical': this.state.Vertical},
+)
+
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
   }
 
-  imageUploadHandler = () => {
-    const fd = new FormData();
-    fd.append('image', this.state.selectedImage, this.state.selectedImage.name);
-    axios.post('http://localhost:8080/pushmanager/campaigns', fd, {onUploadProgress: progressEvent => {
-      console.log("Upload Progress: " + Math.round(progressEvent.loaded / progressEvent.total * 100) + "%")
-  }
-    })
-  
-    .then(res => {
-      console.log(res);
-    });
-  }
 
 
   render() {
-   
-    let {imagePreviewUrl} = this.state;
-    let $imagePreview = null;
-    if (imagePreviewUrl) {
-      $imagePreview = (<img src={imagePreviewUrl} />);
-    } else {
-      $imagePreview = (<span className="previewText"></span>);
-    }
 
     return (
 
      <div style={styles.container}>
-      
-      <h3 style={styles.headline}>Create Campaign</h3>
 
       <div style={styles.formComponent}>
 
         <form
+          onSubmit = {this.handleSubmit}
           style={styles.form}>
 
           <input
-            style={styles.formInput}
+            style={styles.titleFormInput}
+            name='title'
+            type="text"
             placeholder="Title"
             id="new-title"
             onChange={this.titleHandleChange}
@@ -150,9 +130,10 @@ class TextInput extends React.Component {
           <input
             placeholder="Text"
             style={styles.formInput}
+            type="text"
+            name='text'
             id="new-text"
             onChange={this.textHandleChange}
-
           />
 
           <label style={styles.formUploadText}>
@@ -177,10 +158,9 @@ class TextInput extends React.Component {
           <label>
             <select 
             value="vertical"
-            onChange={this.verticalDropdownChanged.bind(this)}
+            onChange={(e)=>this.verticalDropdownChanged(e)}
             style={styles.formSelect}  
             >
-              <option value="defaultValue">Campaign Vertical</option>
               <option value="Sweepstakes">Sweepstakes</option>
               <option value="Casino">Casino</option>
               <option value="Dating">Dating</option>
@@ -191,11 +171,9 @@ class TextInput extends React.Component {
             </select>
           </label>
           <button
-            
             type="submit"
             value="Submit"
-            style={styles.button}
-            >
+            style={styles.button}>
               Submit
             </button>
         </form>
@@ -221,11 +199,8 @@ class TextInput extends React.Component {
       </span>
       </div>
 
-
       </div>
 
-      
-  
     );
   };
 }
@@ -235,6 +210,7 @@ const styles = {
   container: {
     width: '100%',
     position:'relative',
+    marginTop:'5%',
   },
 
   headline: {
@@ -260,11 +236,26 @@ const styles = {
     width: 410,
     height: 700,
     borderRadius: 10,
-    border: '1px black solid'
+    border: '1px gray solid'
 
   },
 
+  titleFormInput:{
+
+    marginTop: 40,
+    marginLeft: '5%',
+    width: '85%',
+    height: 40,
+    borderRadius: 7,
+    fontSize: 21,
+    padding: 10,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    color: 'gray'
+  },
+
   formInput: {
+   
     marginTop: 10,
     marginLeft: '5%',
     width: '85%',
@@ -287,7 +278,7 @@ const styles = {
   },
 
   formSelect: {
-    marginTop: 15,
+    marginTop: 20,
     marginLeft: '5%',
     borderRadius: 4,
     width: '85%',

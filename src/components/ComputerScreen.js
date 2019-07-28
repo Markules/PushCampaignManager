@@ -40,7 +40,7 @@ const styles = {
 
 
     pushScreen: {
-
+        marginTop: '25%',
         width: 600,
         height: 455,
         marginLeft: '30%',
