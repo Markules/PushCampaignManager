@@ -13,7 +13,7 @@ class TextInput extends React.Component {
       text: "",
       selectedIcon: null,
       selectedImage: null,
-      Vertical: null, 
+      Vertical: ' ', 
       imageFile: '',
       iconFile: '',
       imagePreviewUrl: '',
@@ -88,13 +88,13 @@ class TextInput extends React.Component {
   }
 
   verticalDropdownChanged(e){
-    this.setState({vertical: e.target.value});
+    this.setState({Vertical: e.target.value});
   }
 
   handleSubmit = event => {
     event.preventDefault();
 
-    axios.post('http://localhost:8080/Campaign/add',
+    axios.post('http://localhost:8080/api/add',
      {'title': this.state.title, 'text': this.state.text, 'icon': this.state.iconPreviewUrl, 'image': this.state.imagePreviewUrl, 'vertical': this.state.Vertical},
 )
 
@@ -157,7 +157,7 @@ class TextInput extends React.Component {
 
           <label>
             <select 
-            value="vertical"
+            value={this.state.Vertical}
             onChange={(e)=>this.verticalDropdownChanged(e)}
             style={styles.formSelect}  
             >
