@@ -1,0 +1,103 @@
+
+* {
+    background: red;
+}
+  
+    container: {
+      width: '100%',
+      position:'relative',
+      marginTop:'5%',
+    },
+  
+    headline: {
+      marginLeft: '42%',
+      marginTop: 30,
+      fontSize: 31,
+    },
+  
+  
+    formComponent: {
+      
+      height:'100%',
+      width: '90%',
+      display:'flex',
+  
+    },
+  
+    form: {
+      
+      boxSizing: "border-box",
+      display: 'inline-grid',
+      backgroundColor: '#f6f5f5',
+      width: 410,
+      height: 700,
+      borderRadius: 10,
+      border: '1px gray solid'
+  
+    },
+  
+    titleFormInput:{
+  
+      marginTop: 40,
+      marginLeft: '5%',
+      width: '85%',
+      height: 40,
+      borderRadius: 7,
+      fontSize: 21,
+      padding: 10,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      color: 'gray'
+    },
+  
+    formInput: {
+     
+      marginTop: 10,
+      marginLeft: '5%',
+      width: '85%',
+      height: 40,
+      borderRadius: 7,
+      fontSize: 21,
+      padding: 10,
+      borderStyle: 'solid',
+      borderWidth: 1,
+      color: 'gray'
+    },
+  
+    formUpload: {
+      marginLeft: '5%',
+  
+    },
+  
+    formUploadText: {
+      marginLeft: '5%',
+    },
+  
+    formSelect: {
+      marginTop: 20,
+      marginLeft: '5%',
+      borderRadius: 4,
+      width: '85%',
+      height: 30,
+      textAlign: 'center',
+  
+  
+    },
+  
+    button: {
+      marginTop: 10,
+      marginBottom: 10,
+      marginLeft: '5%',
+      width: '85%',
+      height: 50,
+      textAlign: 'center',
+      borderRadius: 10,
+      backgroundColor: '#ffc785',
+      borderStyle: 'solid',
+      borderWidth: 2,
+      fontSize: 21,
+      border: '1px gray solid'
+  
+    }
+  
+  }

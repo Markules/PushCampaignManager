@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ComputerScreen from './ComputerScreen';
 import MobileScreen from './MobileScreen';
+import './TextInput.css';
 
 class TextInput extends React.Component {
 
@@ -72,27 +73,18 @@ class TextInput extends React.Component {
   titleHandleChange = event => {
     this.setState({ title: event.target.value });
   }
+
   // Set the text state
   textHandleChange = event => {
     this.setState({ text: event.target.value});
   }
 
-//   imageHandleChange = event => {
-//     this.setState({
-//     selectedImage: event.target.files[0]
-//   })
-// }
-
-//   iconHandleChange = event => {
-//     this.setState({
-//       selectedIcon: event.target.files[0]
-//     })
-//   }
-
+// Set the value of the selected option
   verticalDropdownChanged(e){
     this.setState({Vertical: e.target.value});
   }
 
+//  Post request to add campaign paramaters
   handleSubmit = event => {
     event.preventDefault();
 
