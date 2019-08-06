@@ -31,10 +31,10 @@ class TextInput extends React.Component {
 
   _handleSubmit(e) {
     e.preventDefault();
-    // TODO: do something with -> this.state.file
     console.log('handle uploading-', this.state.file);
   }
 
+  // Handle Icon upload and set the icon state
   _handleIconChange(e) {
     e.preventDefault();
 
@@ -51,6 +51,7 @@ class TextInput extends React.Component {
     iconReader.readAsDataURL(iconFile)
   }
 
+  // Handle Image upload and set the image state
   _handleImageChange(e) {
     e.preventDefault();
 
@@ -67,25 +68,26 @@ class TextInput extends React.Component {
     imageReader.readAsDataURL(imageFile)
   }
 
+  // Set the title state
   titleHandleChange = event => {
     this.setState({ title: event.target.value });
   }
-
+  // Set the text state
   textHandleChange = event => {
     this.setState({ text: event.target.value});
   }
 
-  imageHandleChange = event => {
-    this.setState({
-    selectedImage: event.target.files[0]
-  })
-}
+//   imageHandleChange = event => {
+//     this.setState({
+//     selectedImage: event.target.files[0]
+//   })
+// }
 
-  iconHandleChange = event => {
-    this.setState({
-      selectedIcon: event.target.files[0]
-    })
-  }
+//   iconHandleChange = event => {
+//     this.setState({
+//       selectedIcon: event.target.files[0]
+//     })
+//   }
 
   verticalDropdownChanged(e){
     this.setState({Vertical: e.target.value});
