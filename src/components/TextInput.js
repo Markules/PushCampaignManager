@@ -205,7 +205,7 @@ const styles = {
   container: {
     width: '100%',
     position:'relative',
-    marginTop:'5%',
+   
   },
 
   headline: {
