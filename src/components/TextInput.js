@@ -149,7 +149,8 @@ class TextInput extends React.Component {
               onChange={(e)=>this._handleImageChange(e)}/>
           </label>
 
-          <label>
+          <label style={styles.formVertical}>
+            Select Vertical:
             <select 
             value={this.state.Vertical}
             onChange={(e)=>this.verticalDropdownChanged(e)}
@@ -280,6 +281,10 @@ const styles = {
     textAlign: 'center',
 
 
+  },
+
+  formVertical: {
+    marginLeft: '5%',
   },
 
   button: {
